@@ -1,0 +1,9 @@
+线上199环境增加larval计划任务过程：
+
+1：开始配置和开发环境一致，crontab -u www -e 后，增加命令行：* * * * * php /home/wwwroot/html/boss/artisan schedule:run >> /tmp/boss-task.log
+此命令在开发环境执行正常，可以正常在log中有日志文件，线上没有日志文件
+
+2：后修改线上命令行为 * * * * * /usr/local/bin/php /home/wwwroot/html/boss/artisan schedule:run >> /tmp/boss-task.log,可以正常出现日志信息
+
+
+
